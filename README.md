@@ -35,8 +35,13 @@ The `bot.py` script acts as a Discord bot responsible for implementing IP blocki
 
 ### Sniffer Script (`sniffer.py`)
 1. Replace `Your_Discord_webhook` with your actual Discord webhook URL to receive attack notifications.
-2. Configure the script to monitor the desired ports used by your game server or services susceptible to DDoS attacks.
+2. Configure the script to monitor the desired ports used by your game server or services susceptible to DDoS attacks `bpf_filter=`.
 3. Ensure that the network interface specified in `sniff_udp_traffic()` function has the necessary permissions to capture network traffic.
+4. Whitelist IP Addresses:
+    - Ensure to maintain a list of whitelisted IP addresses in the `ip_addresses.txt` file.
+    - Whitelisted IP addresses will not be flagged or blocked by the system.
+    - You can use tools like [Squad Protector](https://github.com/Cloud9OS/Squad-Protector) to log whitelisted IP addresses of players in games like Squad.
+    - For other game servers or services, maintain your own list of whitelisted IP addresses in the `ip_addresses.txt` file.
 
 ### Blocking Bot (`bot.py`)
 1. Set your Discord token, server ID (`GUILD_ID`), and channel ID (`CHANNEL_ID`) in the script.
